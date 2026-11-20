@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shivam Kashyap — Portfolio</title>
+<meta name="description" content="Shivam Kashyap — backend & ML engineer. Go services, Python LLM/RAG systems, and machine learning projects.">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/120293860?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2; --surface:#ffffff; --text:#16181d; --muted:#5d6370; --line:#e4e2db;
+  --accent:#0f7b6c; --accent-soft:#e3f2ef; --chip:#efeee9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1115; --surface:#171a20; --text:#e8e9ec; --muted:#9aa1ad; --line:#262a33;
+    --accent:#3ccfb4; --accent-soft:#12302b; --chip:#20242c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --surface:#171a20; --text:#e8e9ec; --muted:#9aa1ad; --line:#262a33;
+  --accent:#3ccfb4; --accent-soft:#12302b; --chip:#20242c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:700 18px "Space Grotesk",sans-serif;text-decoration:none}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:22px;align-items:center}
+.links a{text-decoration:none;color:var(--muted);font-size:14px}
+.links a:hover{color:var(--text)}
+#theme{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:15px}
+@media (max-width:640px){.links a.hide-sm{display:none}}
+
+header{padding:96px 0 72px}
+.hero{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.eyebrow{font:400 13px "JetBrains Mono",monospace;color:var(--accent);letter-spacing:.04em;margin-bottom:16px}
+h1{font:700 clamp(40px,7vw,68px)/1.05 "Space Grotesk",sans-serif;letter-spacing:-.02em}
+.lede{max-width:580px;color:var(--muted);font-size:18px;margin-top:22px}
+.cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;text-decoration:none;font-weight:500;font-size:15px;border:1px solid var(--line)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0f1115}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#0f1115}}
+.avatar{width:180px;height:180px;border-radius:24px;object-fit:cover;border:1px solid var(--line)}
+@media (max-width:720px){.hero{grid-template-columns:1fr}.avatar{width:110px;height:110px;order:-1}header{padding:56px 0 48px}}
+
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font:700 30px "Space Grotesk",sans-serif;letter-spacing:-.01em;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:36px}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.skill h3{font:500 15px "Space Grotesk",sans-serif;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:400 12px "JetBrains Mono",monospace;background:var(--chip);color:var(--muted);padding:4px 9px;border-radius:6px}
+
+.featured{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:24px}
+.featured img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+.featured h3{font:700 24px "Space Grotesk",sans-serif;margin:6px 0 10px}
+.featured p{color:var(--muted);margin-bottom:16px}
+.featured ul{color:var(--muted);margin:0 0 18px 18px;font-size:15px}
+.tag{display:inline-block;font:400 12px "JetBrains Mono",monospace;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:6px}
+@media (max-width:820px){.featured{grid-template-columns:1fr}}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filters button{font:500 13px Inter,sans-serif;border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:7px 14px;border-radius:999px;cursor:pointer}
+.filters button.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;text-decoration:none;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.card h4{font:500 17px "Space Grotesk",sans-serif;margin:10px 0 6px}
+.card p{color:var(--muted);font-size:14.5px;flex:1}
+.card .foot{display:flex;justify-content:space-between;margin-top:16px;font:400 12px "JetBrains Mono",monospace;color:var(--muted)}
+.card .foot span:last-child{color:var(--accent)}
+
+.contact{text-align:center}
+.contact .cta{justify-content:center}
+footer{padding:32px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#">shivam<span>.</span>kashyap</a>
+  <div class="links">
+    <a href="#skills" class="hide-sm">Skills</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle theme">◐</button>
+  </div>
+</div></nav>
+
+<header class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">// backend &amp; ml engineer</p>
+      <h1>Hi, I'm Shivam Kashyap.</h1>
+      <p class="lede">I build backend services in Go, LLM and RAG systems in Python, and machine learning models, from training notebooks to self-hosted deployments.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See my work →</a>
+        <a class="btn" href="https://github.com/shivamkkas" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/120293860?v=4" alt="Shivam Kashyap">
+  </div>
+</header>
+
+<section id="skills"><div class="wrap">
+  <h2>What I work with</h2>
+  <p class="sub">Tools and languages that show up across my projects.</p>
+  <div class="skills">
+    <div class="skill"><h3>Backend &amp; Systems</h3><div class="chips"><span class="chip">Go</span><span class="chip">RPC</span><span class="chip">REST APIs</span><span class="chip">MQTT</span><span class="chip">systemd</span></div></div>
+    <div class="skill"><h3>AI / LLM</h3><div class="chips"><span class="chip">Ollama</span><span class="chip">RAG</span><span class="chip">Transformers</span><span class="chip">Streamlit</span><span class="chip">Chatbots</span></div></div>
+    <div class="skill"><h3>Machine Learning</h3><div class="chips"><span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">CNNs</span><span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">Jupyter</span></div></div>
+    <div class="skill"><h3>DevOps &amp; Web</h3><div class="chips"><span class="chip">Docker</span><span class="chip">Compose</span><span class="chip">Linux</span><span class="chip">React</span><span class="chip">HTML/CSS</span></div></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <h2>Selected work</h2>
+  <p class="sub">A few things I've built. Everything's open source on GitHub.</p>
+
+  <article class="featured">
+    <img src="https://raw.githubusercontent.com/shivamkkas/generic-deployer/main/docs/demo-admin-user-permissions.gif" alt="generic-deployer demo" loading="lazy">
+    <div>
+      <span class="tag">Featured · Go</span>
+      <h3>generic-deployer</h3>
+      <p>A self-hosted web console for deploying and operating Docker Compose stacks and systemd services, with per-user, per-service permissions.</p>
+      <ul>
+        <li>Single static Go binary, with no database and no agents</li>
+        <li>Live logs, safe file editing and audit logs</li>
+        <li>Fine-grained access: pull, update, restart and logs per service</li>
+      </ul>
+      <a class="btn" href="https://github.com/shivamkkas/generic-deployer" target="_blank" rel="noopener">View repository →</a>
+    </div>
+  </article>
+
+  <div class="filters" id="filters">
+    <button class="on" data-f="all">All</button>
+    <button data-f="backend">Backend</button>
+    <button data-f="ai">AI / LLM</button>
+    <button data-f="ml">Machine Learning</button>
+    <button data-f="web">Web</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let's talk</h2>
+  <p class="sub">Open to interesting backend, ML and infrastructure work.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/shivamkkas" target="_blank" rel="noopener">github.com/shivamkkas</a>
+  </div>
+</div></section>
+
+<footer>© <span id="yr"></span> Shivam Kashyap · Built with plain HTML &amp; hosted on GitHub Pages</footer>
+
+<script>
+const P = [
+  ["rdpms25-go-rpc-service","backend","Go","An RPC service written in Go."],
+  ["pandas-go","backend","Go","A pandas-style data-manipulation library for Go, built around typed columns, I/O and analysis."],
+  ["merger","backend","Go","A Go utility project."],
+  ["mqtt_roha","backend","Python","An MQTT messaging integration in Python."],
+  ["llama_model","ai","React · Python","Ollama RAG UI: chat with conversation management, document upload and RAG-powered search across multiple models."],
+  ["python-llm-service","ai","Python","A Python service for serving LLM workloads."],
+  ["qa_pdf_streamlit","ai","Python","Upload a PDF and ask questions about it, using Hugging Face Transformers question answering in Streamlit."],
+  ["Medi-AI","ai","HTML","A medical assistant web project powered by AI."],
+  ["chat_bot","ai","Python","A conversational chatbot with a web front end."],
+  ["similar_match","ai","Python","A Streamlit app that finds the closest match to an input using fuzzy string matching."],
+  ["Image_classification_using_CNN","ml","TensorFlow","Image classification with convolutional neural networks in TensorFlow."],
+  ["Flower_Classification","ml","Jupyter","Classifies flowers into categories such as roses, dandelions and tulips."],
+  ["banglore_home_prices_model","ml","scikit-learn","Predicts Bangalore home prices with linear regression, with a web front end."],
+  ["prediction_system","ml","Jupyter","A machine learning prediction system."],
+  ["cartoonifying_image","ml","OpenCV","Turns photos into cartoon-style images."],
+  ["ethereum_front","web","CSS","A front end for an Ethereum dApp."],
+  ["confectionery_web","web","HTML","A responsive website for a confectionery brand."],
+  ["NGO_web","web","CSS","A website for an NGO."]
+];
+const grid = document.getElementById('grid');
+function render(f){
+  grid.innerHTML = P.filter(p => f==='all' || p[1]===f).map(([n,c,l,d]) =>
+    `<a class="card" href="https://github.com/shivamkkas/${n}" target="_blank" rel="noopener">
+      <span class="tag">${l}</span><h4>${n.replace(/[_-]/g,' ')}</h4><p>${d}</p>
+      <div class="foot"><span>${c==='ai'?'AI / LLM':c==='ml'?'ML':c[0].toUpperCase()+c.slice(1)}</span><span>View →</span></div></a>`).join('');
+}
+render('all');
+document.getElementById('filters').addEventListener('click', e => {
+  if(!e.target.dataset.f) return;
+  document.querySelectorAll('#filters button').forEach(b => b.classList.toggle('on', b===e.target));
+  render(e.target.dataset.f);
+});
+document.getElementById('yr').textContent = new Date().getFullYear();
+const root = document.documentElement;
+try{ const t = localStorage.getItem('theme'); if(t) root.dataset.theme = t; }catch(e){}
+document.getElementById('theme').onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try{ localStorage.setItem('theme', root.dataset.theme); }catch(e){}
+};
+</script>
+</body>
+</html>
